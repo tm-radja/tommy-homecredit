@@ -8,11 +8,12 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.tommy.manik</groupId>
-	<artifactId>TommyManikTest-HomeCredit</artifactId>
+	<groupId>com.tm.manik</groupId>
+	<artifactId>T-Manik-HomeCredit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TommyManikTest-HomeCredit</name>
-	<description>Tommy Manik Test - Home Credit</description>
+	<packaging>war</packaging>
+	<name>T-Manik-HomeCredit</name>
+	<description>Tommy Manik - Home Credit</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

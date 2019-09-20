@@ -65,9 +65,15 @@ public class UserDaoImp implements UserDao{
 	@SuppressWarnings("unchecked")
 	public List<RoleModulesEntity> getModulesByUser(int id) {
 		User userEntity = (User) sessionFactory.getCurrentSession().getNamedQuery("GetUserById").setParameter("userId", id).uniqueResult();
-		UserRole uRole = userEntity.getUserRole();
-		List<RoleModulesEntity> modulesEntity = sessionFactory.getCurrentSession().getNamedQuery("GetRoleModuleByUserRole").setParameter("roleId", uRole.getRoleId()).list();
-		return modulesEntity;
+		if(userEntity == null || userEntity.equals(null)) {
+			return null;
+		}else {
+			UserRole uRole = userEntity.getUserRole();
+			List<RoleModulesEntity> modulesEntity = sessionFactory.getCurrentSession().getNamedQuery("GetRoleModuleByUserRole").setParameter("roleId", uRole.getRoleId()).list();
+			return modulesEntity;
+		}
+			
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 /*
 SQLyog Community v12.5.0 (64 bit)
-MySQL - 5.7.19-log : Database - test_homecredit
+MySQL - 5.7.26-log : Database - test_homecredit
 *********************************************************************
 */
 
@@ -59,6 +59,8 @@ CREATE TABLE `role_modules` (
   `role_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`rm_id`),
   KEY `FKlfibvmp5sf3u6v4k44e9k526n` (`module_id`),
+  KEY `FK61gl6d9pqrosg4vvlh7dpf698` (`role_id`),
+  CONSTRAINT `FK61gl6d9pqrosg4vvlh7dpf698` FOREIGN KEY (`role_id`) REFERENCES `userrole` (`role_id`),
   CONSTRAINT `FKlfibvmp5sf3u6v4k44e9k526n` FOREIGN KEY (`module_id`) REFERENCES `modules` (`module_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -90,7 +92,9 @@ CREATE TABLE `userinfo` (
   `country` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `role_id` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `FK4v0b04tycpkaexv9n3w68auhq` (`role_id`),
+  CONSTRAINT `FK4v0b04tycpkaexv9n3w68auhq` FOREIGN KEY (`role_id`) REFERENCES `userrole` (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `userinfo` */
@@ -102,7 +106,8 @@ insert  into `userinfo`(`id`,`country`,`name`,`role_id`) values
 (4,'england','Leman','R1'),
 (5,'sukoi','whwh','R3'),
 (6,'Indonesia','whwh','R1'),
-(7,'Indonesia','nana','R2');
+(7,'Indonesia','nana','R2'),
+(8,'Indonesia','Lela','R3');
 
 /*Table structure for table `userrole` */
 
@@ -112,7 +117,7 @@ CREATE TABLE `userrole` (
   `role_id` varchar(255) NOT NULL,
   `role_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `userrole` */
 

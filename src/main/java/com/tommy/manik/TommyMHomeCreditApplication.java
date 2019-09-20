@@ -24,13 +24,13 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
         DataSourceAutoConfiguration.class, //
         DataSourceTransactionManagerAutoConfiguration.class, //
         HibernateJpaAutoConfiguration.class })
-public class TommyManikTestHomeCreditApplication {
+public class TommyMHomeCreditApplication {
 	
 	@Autowired
     private Environment env;
 	
 	public static void main(String[] args) {
-		SpringApplication.run(TommyManikTestHomeCreditApplication.class, args);
+		SpringApplication.run(TommyMHomeCreditApplication.class, args);
 	}
 	
 	@Bean(name = "dataSource")
